@@ -17,7 +17,7 @@ class RolesFactory extends Factory
     public function definition(): array
     {
         return [
-            'nombre' => $this->faker->sentence(50),
+            'nombre' => $this->faker->name(),
         ];
     }
 }

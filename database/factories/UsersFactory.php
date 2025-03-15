@@ -17,9 +17,9 @@ class UsersFactory extends Factory
     public function definition(): array
     {
         return [
-            'nombre' => $this->faker->sentence(50),
-            'email' => $this->faker->sentence(50),
-            'password' => $this->faker->sentence(50),
+            'nombre' => $this->faker->name(),
+            'email' => $this->faker->unique()->safeEmail(), // Email único
+            'password' => bcrypt('password'), 
             'rol_id' => rand(1,10),
         ];
     }
