@@ -11,9 +11,9 @@ return new class extends Migration
     {
         /*Inicio configuración*/
 
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('roles', function (Blueprint $table) {
             $table->id(); // Auto Increment y Primary Key
-            $table->string('nombre', 100); // VARCHAR(100)
+            $table->string('nombre', 255); // VARCHAR(255)
             $table->timestamps(); // Crea columnas created_at y updated_at
         });
 
@@ -25,7 +25,7 @@ return new class extends Migration
     {
         /*Inicio configuracion*/
 
-        Schema::dropIfExists('users'); // Elimina la tabla si existe
+        Schema::dropIfExists('roles'); // Elimina la tabla si existe
 
         /*Fin Configuracion */
     }

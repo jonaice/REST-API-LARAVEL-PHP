@@ -11,14 +11,33 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        /*Inicio configuración*/
+
+        Schema::create('users', function (Blueprint $table) {
+            
+            $table->id(); 
+            $table->string('nombre', 100); // VARCHAR(100)
+            $table->string('email', 255)->unique(); // VARCHAR(255) y Unique
+            $table->string('password', 500); // VARCHAR(500)
+            $table->timestamps(); // Crea columnas created_at y updated_at
+
+            
+            // Relación con la tabla roles
+            $table->unsignedBigInteger('rol_id'); // Campo para la relación
+            $table->foreign('rol_id')->references('id')->on('roles'); 
+
+        });
+
+        /*Fin Configuración*/
     }
 
-    /**
-     * Reverse the migrations.
-     */
+
     public function down(): void
     {
-        //
+        /*Inicio configuracion*/
+
+        Schema::dropIfExists('users'); // Elimina la tabla si existe
+
+        /*Fin Configuracion */
     }
 };
